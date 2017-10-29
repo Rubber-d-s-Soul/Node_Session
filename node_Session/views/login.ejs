@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/materialize.css' />
+  </head>
+  <body>
+    <div role="main">
+    <div class="row">
+    <div class="col  s4  offset-s4">
+        <div class="card">
+        <div class="card-content">
+         <span class="card-title center-align"><%= title %></span>
+         <form method="post" action="/userpage">
+                <div class="input-field">
+                    <input class="validate" type="text" name="id">
+                    <label for="id">id</label>
+                </div>           
+                <div class="input-field">
+                    <input class="validate" type="password" name="password">
+                    <label for="password">password</label>
+                </div>
+                <input type="submit" class="btn" value="login">
+                <a href="/signup">create new account</a>
+            </form>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+  </body>
+   <script type="text/javascript" src="/javascripts/jquery.js"></script>
+   <script type="text/javascript" src="/javascripts/materialize.min.js"></script>
+</html>
