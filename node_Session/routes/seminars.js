@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('seminars', { title: '勉強会一覧ページ' });
+    res.render('seminars', { title: '一覧ページ' });
 });
 
 module.exports = router;
