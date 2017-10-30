@@ -11,6 +11,8 @@ var login = require('./routes/login');
 var userpage = require('./routes/userpage');
 var signup = require('./routes/signup');
 var tags = require('./routes/tags');
+var seminars = require('./routes/seminars');
+var members = require('./routes/members');
 var top = require('./routes/top');
 
 var app = express();
@@ -33,6 +35,8 @@ app.use('/login', login);
 app.use('/userpage', userpage);
 app.use('/signup', signup);
 app.use('/tags', tags);
+app.use('/seminars', seminars);
+app.use('/members', members);
 app.use('/top', top);
 
 

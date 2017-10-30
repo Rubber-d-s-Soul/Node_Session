@@ -7,7 +7,7 @@ router.post('/', function(req, res, next) {
     var id = req.body['id'];
     var password = req.body['password'];
     console.log(id + " : " + password);
-    res.render('userpage', { title: 'Login' });
+    res.render('userpage', { title: 'Userpage' });
 });
 
 module.exports = router;
