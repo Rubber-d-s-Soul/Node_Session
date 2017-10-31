@@ -4,16 +4,12 @@
 
 <head>
     <title>
-
+  seminar
     </title>
-    <link rel='stylesheet' href="/stylesheets/style.css" />
-    <link rel='stylesheet' href="/stylesheets/materialize.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%- include('./component/in_css.ejs') %>
 </head>
 
 <body>
-     <!-- Header inculde -->
-    <%- include('./component/header.ejs') %>
     <!-- Page Layout here -->
     <div class="row">
 
@@ -21,23 +17,19 @@
         <!-- Grey navigation panel -->
         <%- include('./component/sidebar.ejs') %>
       </div>  
-      <div class="col s7 offset-s1">
+      <div class="col s9">
          <div class="row">
           <div class="col s12">
          
-          <h1><%= title %></h1>
-           <a href="/addSeminar" class="waves-effect waves-light btn right">add Card<i class="material-icons">add_circle</i></a>
+          <h2 class="page-title"><%= title %></h2>
+           <a href="/addSeminar" class="waves-effect waves-light btn right orange lighten-1">add Card<i class="material-icons">add_circle</i></a>
           </div>
-          <div class="col s12">
             <!-- Teal page content  -->
             <%- include('./component/seminar/seminarCard.ejs') %>
             <%- include('./component/seminar/seminarCard.ejs') %>
             <%- include('./component/seminar/seminarCard.ejs') %>
-          </div>
-        </div>
       </div>
     </div>
 </body>
-  <script type="text/javascript" src="/javascripts/jquery.js"></script>
-   <script type="text/javascript" src="/javascripts/materialize.min.js"></script>
+<%- include('./component/in_js.ejs') %>
 </html>

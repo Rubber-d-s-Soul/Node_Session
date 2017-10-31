@@ -14,6 +14,7 @@ var tags = require('./routes/tags');
 var seminars = require('./routes/seminars');
 var addSeminar = require('./routes/addSeminar');
 var members = require('./routes/members');
+var chart = require('./routes/chart');
 var top = require('./routes/top');
 
 var app = express();
@@ -39,6 +40,7 @@ app.use('/tags', tags);
 app.use('/seminars', seminars);
 app.use('/addSeminar', addSeminar);
 app.use('/members', members);
+app.use('/chart', chart);
 app.use('/top', top);
 
 

@@ -1,7 +1,84 @@
 body {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Century Gothic", Helvetica, Arial, sans-serif;
+    background-color: #ffcc80;
 }
 
 a {
     color: #00B7FF;
+}
+
+
+/*sidebar*/
+
+ul#slide-out {
+    background-color: #ff9800;
+}
+
+li.logo {
+    background-color: #f57c00;
+    padding: 40px;
+}
+
+.side-nav li>a.brand-logo {
+    color: #fff;
+    font-size: 30px;
+}
+
+.side-nav .divider.logo-bottom {
+    margin: 0px;
+}
+
+ul.side-nav li a {
+    color: #fff;
+}
+
+
+/*main contents*/
+
+.page-title {
+    color: #616161;
+}
+
+
+/*seminar*/
+
+.card .card-content .card-title {
+    margin-bottom: 13px;
+}
+
+span.card-title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+a.edit-btn {
+    margin: 10px 20px 0 0;
+}
+
+div.row.seminar-contents {
+    margin-bottom: 0px;
+}
+
+div.seminar-dataList p.seminar-data {
+    margin-bottom: 7px;
+}
+
+div.seminar-explain {
+    margin-top: 15px;
+}
+
+div.seminar-tags {
+    margin-top: 15px;
+}
+
+div.tags div.chip {
+    background-color: #ffe0b2;
+}
+
+.card-action span {
+    color: #fff;
+}
+
+.data {
+    font-size: 17px;
+    font-weight: bold;
 }
