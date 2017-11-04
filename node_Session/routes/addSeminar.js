@@ -5,8 +5,7 @@ var router = express.Router();
 /* addseminar card登録ページ */
 router.get('/', function(req, res, next) {
     var data = {
-        title: 'addCard',
-        msg: 'cardの登録します'
+        title: 'Seminarの登録',
     }
     res.render('addSeminar', data);
 });

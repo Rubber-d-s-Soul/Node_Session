@@ -82,3 +82,42 @@ div.tags div.chip {
     font-size: 17px;
     font-weight: bold;
 }
+
+
+/*addSeminar*/
+
+#addSeminarForm div.input-field {
+    margin-bottom: 20px;
+}
+
+#addSeminarForm div.input-field label {
+    color: #fff;
+    margin-left: 5px;
+}
+
+#addSeminarForm div.input-field input {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-left: 5px;
+}
+
+div.input-field textarea.materialize-textarea {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding-left: 5px;
+}
+
+div.input-field .prefix.active {
+    color: #fff176;
+}
+
+
+/*date picker*/
+
+div.picker__date-display {
+    background-color: #fb8c00;
+}
+
+div.picker__day--selected,
+div.picker__day--selected:hover,
+div.picker--focused div.picker__day--selected {
+    background-color: #fb8c00;
+}
