@@ -92,7 +92,6 @@ div.tags div.chip {
 
 #addSeminarForm div.input-field label {
     color: #fff;
-    margin-left: 5px;
 }
 
 #addSeminarForm div.input-field input {
@@ -107,6 +106,10 @@ div.input-field textarea.materialize-textarea {
 
 div.input-field .prefix.active {
     color: #fff176;
+}
+
+ul.dropdown-content li>span>label {
+    top: -10px;
 }
 
 

@@ -14,20 +14,20 @@
         <%- include('./component/sidebar.ejs') %>
     </div>
     <div class="col  s8">
-    <h2 class="center-align">title</h2>
+    <h2 class="page-title center-align">Add Seminar</h2>
         <div class="card orange darken-2 hoverable">
         <div class="card-content white-text">
          <span class="card-title center-align"><%= title %></span>
-        <p class="right">（※）は必須入力項目です。 </p>
+         <p>（※）は必須入力項目です。 </p>
          <form id="addSeminarForm" method="post" action="/addSeminar/post">
                 <div class="input-field">
                 <i class="material-icons prefix">local_library</i>
-                    <input class="validate" type="text" name="title" placeholder="タイトル（※）">
+                    <input id="title" class="validate" type="text" name="title" placeholder="タイトル（※）">
                     <label for="title">Title</label>
                 </div> 
                 <div class="input-field">      
                   <i class="material-icons prefix">edit</i>
-             <select>
+             <select name="type">
               <option disabled selected>勉強会タイプの選択（※）</option>
                 <option value="1">講義（体験なし）</option>
                 <option value="2">ハンズオン（体験あり）</option>
@@ -38,7 +38,7 @@
             </div>
             <div class="input-field">
               <i class="material-icons prefix">devices</i>      
-             <select>
+             <select name="category">
              <option disabled selected>カテゴリーの選択（※）</option>
                 <option value="1">Programming</option>
                 <option value="2">Tool</option>
@@ -49,51 +49,62 @@
             </div>
         <div class="input-field">
           <i class="material-icons prefix">event_note</i>
-          <textarea  name="explain" class="materialize-textarea" placeholder="勉強会の内容について"></textarea>
+          <textarea  id="explain" name="explain" class="materialize-textarea" placeholder="勉強会の内容について"></textarea>
           <label for="explain">Explain</label>
         </div>
          <div class="input-field">
            <i class="material-icons prefix">sentiment_very_satisfied</i>
-          <textarea name="target" class="materialize-textarea" placeholder="対象者について"></textarea>
+          <textarea id="target" name="target" class="materialize-textarea" placeholder="対象者について"></textarea>
           <label for="target">Target</label>
         </div>
         <div class="input-field">
           <i class="material-icons prefix">schedule</i>
-            <input type="text" class="datepicker" name="date" placeholder="予定日程"> 
+            <input id="date" type="text" class="datepicker" name="date" placeholder="予定日程"> 
               <label for="title">Date</label>
+        </div>
+        <div class="input-field">
+        <i class="material-icons prefix">local_offer</i>
+         <select id="tags" multiple>
+      <option value="" disabled selected>関連タグの選択</option>
+      <option value="tag1">Option 1</option>
+      <option value="tag2">Option 2</option>
+      <option value="tag3">Option 3</option>
+    </select>
+    <label>tags</label>
         </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
-                    <input class="validate" type="text" name="name" placeholder="名前（※）">
+                    <input id="name" class="validate" type="text" name="name" placeholder="名前（※）">
                     <label for="title">Your Name</label>
                 </div>     
                   <div class="input-field">
                     <i class="material-icons prefix">email</i>
-                    <input class="validate" type="email" name="mail" placeholder="メールアドレス（※）">
+                    <input id="email" class="validate" type="email" name="mail" placeholder="メールアドレス（※）">
                     <label for="title" data-error="wrong">Your Mail</label>
                 </div>     
             <div class="input-field">
               <i class="material-icons prefix">group</i>
-                <input class="validate" type="text" name="member" placeholder="募集最低人数(数字)（※）">
+                <input id="group" class="validate" type="text" name="member" placeholder="募集最低人数(数字)（※）">
                 <label for="title">member</label>
             </div>   
             </form>
-            <input type="submit" class="btn orange darken-4" value="Add Card">
+            <input id="addSeminar_btn" class="btn orange darken-4" value="登録">
            </div>
         </div>
         </div>
         </div>
         </div>
   </body>
-   <script type="text/javascript" src="/javascripts/jquery.js"></script>
-   <script type="text/javascript" src="/javascripts/materialize.min.js"></script>
+   <%- include('./component/in_js.ejs') %>
+   <script type="text/javascript" src="/javascripts/addSemi_front.js"></script>
    <script>
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    selectYears: 10, // Creates a dropdown of 15 years to control year,
     today: 'Today',
     clear: 'Clear',
     close: 'Ok',
+    format: 'yyyy/mm/dd',    
     closeOnSelect: false // Close upon selecting a date,
   });
    </script>

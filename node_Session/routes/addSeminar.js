@@ -1,6 +1,7 @@
 /* Card登録用のページ */
 var express = require('express');
 var router = express.Router();
+var couch = require('./couchdb.js');
 
 /* addseminar card登録ページ */
 router.get('/', function(req, res, next) {
@@ -13,13 +14,23 @@ router.get('/', function(req, res, next) {
 /* addSeminar card データ登録　*/
 //SelectBoxの値の取り方について
 //https://stackoverflow.com/questions/18581459/get-dropdown-value-using-express-in-node-js-from-html-page
-router.post('/post', function(req, res, next) {
+router.post('/create', function(req, res, next) {
+    var data = req.body;
+    var dbname = "seminar_db";
+    var status, msg;
+    var result = {
+            "result": status,
+            "url": "/seminar",
+            "msg": msg
+        }
+        //console.log("[data]");
+        //console.log(data);
+        //document追加
+    status = couch.createDoc(dbname, data);
 
-    var data = {
-        title: 'addCard',
-        msg: 'Card登録が完了しました'
-    }
-    res.render('addSeminar', data);
+    msg = (status) ? "DB登録SUCCESS" : "DB ERROR";
+
+    res.send(result);
 });
 
 module.exports = router;
