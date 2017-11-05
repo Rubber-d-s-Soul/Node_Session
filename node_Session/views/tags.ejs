@@ -19,13 +19,18 @@
       </div>  
       <div class="col s12 m7 l7 main">
       <h1 class="page-title"><%= title %></h1>
+      <p><%= msg %></p>
         <!-- Teal page content  -->
        
           <div class="card row orange darken-3">
             <div class="card-content white-text">
-              <button class="btn btn-floating right  deep-orange darken-3"><i class="material-icons">add</i></button>
+              <button id="addTag_btn" class="btn btn-floating waves-effect waves-light right  deep-orange darken-3"><i class="material-icons">add</i></button>
               <span class="card-title">Tags</span>
-              <div class="chip orange lighten-4">Java</div>
+              <% tagList.forEach(function(tag) {  %>
+              
+              <div id="<%= tag.id %>" value="<%= tag.value.rev%>" class="chip orange lighten-4"><%= tag.value.title %></div>
+              
+              <% }); %>
             </div>
           </div>
       </div>

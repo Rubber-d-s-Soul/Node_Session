@@ -133,3 +133,21 @@ div.picker__day--selected:hover,
 div.picker--focused div.picker__day--selected {
     background-color: #fb8c00;
 }
+
+
+/*tags ページ*/
+
+div.chip:hover,
+div.chip:focus {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#addTag_btn {
+    margin-top: -15px;
+}
+
+#addTag_btn:hover,
+#addTag_btn:focus {
+    opacity: 0.8;
+}

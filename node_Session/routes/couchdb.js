@@ -13,6 +13,8 @@ const couch = new NodeCouchDb({
     }
 });
 
+exports.couchdb = couch;
+
 //document追加
 exports.createDoc = function(dbname, data) {
     console.log("[create] : " + dbname);
@@ -67,4 +69,18 @@ exports.updateDoc = function(dbname, data) {
 //document削除
 exports.deleteDoc = function(dbname, data) {
     console.log("[update] : " + dbname);
+}
+
+//指定データ取得
+exports.get_allData = function(dbname, viewUrl) {
+    var data;
+    couch.get(dbname, viewUrl).then(({ data, headers, status }) => {
+        console.log("[couchDB " + dbname + " ] get SUCCESS");
+        console.log(data);
+
+    }, err => {
+        console.log("[couchDB ERROR]");
+
+    });
+    return data;
 }
