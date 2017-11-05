@@ -62,17 +62,16 @@ router.post('/create', function(req, res, next) {
         console.log("[ status ] : " + status);
         console.log(status);
         status = true;
+        res.send(result);
     }, err => {
         console.log("[couch createDoc ERROR]");
         console.log(err.body);
         status = false;
+        res.send(result);
     });
 
-    console.log(status);
+    //msg = (status) ? "DB登録SUCCESS" : "DB ERROR";
 
-    msg = (status) ? "DB登録SUCCESS" : "DB ERROR";
-
-    res.send(result);
 });
 
 module.exports = router;

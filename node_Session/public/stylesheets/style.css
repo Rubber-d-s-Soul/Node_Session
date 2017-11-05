@@ -156,7 +156,10 @@ div.chip:focus {
 /*tags addtag modal*/
 
 .tagchip.chip {
-    font-size: 15px;
+    font-size: 18px;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 8px;
 }
 
 #addTag_Field {
