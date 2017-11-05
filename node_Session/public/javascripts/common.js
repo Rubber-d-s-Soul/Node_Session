@@ -13,9 +13,11 @@ var common = {
             data: data,
             success: function(result) {
                 console.log(result);
+                alert();
                 func(result);
             },
             error: function(jqXHR, textStatus, errorThrown) {
+                alert();
                 alert('Error connecting to the Node.js server... ' + textStatus + " " + errorThrown);
             }
         });
@@ -27,6 +29,7 @@ var common = {
     },
     move_browse: function(data) {
         console.log("[move_browse]");
+        console.log(data);
         alert("[move_browse]");
         location.href(data.url);
     },

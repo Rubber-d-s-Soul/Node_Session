@@ -3,7 +3,6 @@ const NodeCouchDb = require('node-couchdb');
 /*timestamp用*/
 var moment = require("moment");
 
-
 const couch = new NodeCouchDb({
     host: '127.0.0.1',
     protocol: 'http',
@@ -19,8 +18,6 @@ exports.createDoc = function(dbname, data) {
     console.log("[create] : " + dbname);
     console.log(data);
 
-    console.log(Object.keys(data));
-
     var status;
     var title = data.title;
     var type = data.type;
@@ -34,19 +31,6 @@ exports.createDoc = function(dbname, data) {
     var member = data.member;
     var part_member = [];
     var createtime = moment().format("YYYY/MM/DD HH:mm:ss");
-
-    console.log("[title] : " + title);
-    console.log("[type] : " + type);
-    console.log("[category] : " + category);
-    console.log("[target] : " + target);
-    console.log("[explain] : " + explain);
-    console.log("[date] : " + datetime);
-    console.log("[tags] : " + tags);
-    console.log("[name] : " + name);
-    console.log("[mail] : " + mail);
-    console.log("[member] : " + member);
-    console.log("[part_member] : " + part_member);
-    console.log("[createtime] : " + createtime);
 
     couch.insert(dbname, {
         title: title,

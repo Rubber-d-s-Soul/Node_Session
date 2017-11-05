@@ -1,9 +1,37 @@
 $(function() {
+    //入力フォームのバリデーション
+    $(document).ready(function() {
+        $.validator.setDefaults({
+            ignore: []
+        });
+
+        $("#addSeminarForm").validate({
+            rules: {
+                title: {
+                    required: true,
+                    minlength: 5
+                }
+            },
+            type: "required",
+            category: "required",
+            errorClass: "invalid form-error",
+            errorElement: 'div',
+            errorPlacement: function(error, element) {
+                error.appendTo(element.parent());
+            }
+        });
+    });
+
+
+
+
     //登録ボタンクリック時
     $(add_semi.id.add_semi_btn).on("click", function() {
         console.log("[addSeminar btn] click");
         //データ取得
         var title = $("#title").val();
+        $("#title").focus();
+        $("#title").blur();
         console.log("[title] : " + title);
 
         //タイプ
@@ -31,20 +59,29 @@ $(function() {
         console.log("[tags] : " + tags);
 
         //名前
-        var name = $("#name").val();
+        var $name = $("#name");
+        var name = $name.val();
+        $name.focus().blur();
         console.log("[name] : " + name);
 
         //メール
-        var email = $("#email").val();
+        var $email = $("#email");
+        var email = $email.val();
+        $email.focus().blur();
         console.log("[email] : " + email);
 
         //募集人数
-        var member = $("#group").val();
+        var $member = $("#group");
+        var member = $member.val();
+        $member.focus().blur();
         console.log("[group] : " + member);
 
         var url = add_semi.ajaxUrl.addSeminar;
         var type = conf.ajaxType.post;
         var dataType = conf.ajaxDataType.json;
+
+
+        if (title == "" || name == "" || email == "" || member == "") return false;
 
         var data = {
             "title": title,

@@ -1,6 +1,8 @@
 /* Card登録用のページ */
 var express = require('express');
 var router = express.Router();
+
+
 var couch = require('./couchdb.js');
 
 /* addseminar card登録ページ */
@@ -19,17 +21,27 @@ router.post('/create', function(req, res, next) {
     var dbname = "seminar_db";
     var status, msg;
     var result = {
-            "result": status,
-            "url": "/seminar",
-            "msg": msg
-        }
-        //console.log("[data]");
-        //console.log(data);
-        //document追加
+        "result": status,
+        "url": "/seminar",
+        "msg": msg
+    }
+
     status = couch.createDoc(dbname, data);
+    console.log(status);
 
     msg = (status) ? "DB登録SUCCESS" : "DB ERROR";
 
+    /*succuess /error時分ける
+    if (status) {
+        console.log("success");
+       
+    } else {
+        console.log("error");
+        var errordata = {
+            title: 'Seminarの登録(Error)',
+        }
+        res.render('addSeminar', errordata);
+    }*/
     res.send(result);
 });
 

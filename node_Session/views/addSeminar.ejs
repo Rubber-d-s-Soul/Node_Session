@@ -9,44 +9,46 @@
   <body>
     <div role="main">
     <div class="row">
-    <div class="col s3">
+    <div class="col s1 m3 l3">
         <!-- Grey navigation panel -->
         <%- include('./component/sidebar.ejs') %>
     </div>
-    <div class="col  s8">
+    <div class="col  s10 m12 l8">
     <h2 class="page-title center-align">Add Seminar</h2>
         <div class="card orange darken-2 hoverable">
         <div class="card-content white-text">
          <span class="card-title center-align"><%= title %></span>
          <p>（※）は必須入力項目です。 </p>
-         <form id="addSeminarForm" method="post" action="/addSeminar/post">
+         <form id="addSeminarForm">
                 <div class="input-field">
                 <i class="material-icons prefix">local_library</i>
-                    <input id="title" class="validate" type="text" name="title" placeholder="タイトル（※）">
-                    <label for="title">Title</label>
+                    <input id="title" class="validate" required="" aria-required="true" type="text" name="title" placeholder="タイトル（※）">
+                    <label for="title" data-error="必須入力項目です" data-success="right">Title</label>
                 </div> 
                 <div class="input-field">      
                   <i class="material-icons prefix">edit</i>
-             <select name="type">
-              <option disabled selected>勉強会タイプの選択（※）</option>
+             <select name="type" data-error=".type_error" aria-required="true"  aria-invalid="false"   class="validate">
+              <option value disabled selected>勉強会タイプの選択（※）</option>
                 <option value="1">講義（体験なし）</option>
                 <option value="2">ハンズオン（体験あり）</option>
                 <option value="3">ハッカソン</option>
                 <option value="4">その他</option>
             </select>
-            <label>Type Select</label>
+            <label for="type" data-error="必須入力項目です">Type Select</label>
+            <div class="input-field">
+             <div class="type_error"></div>
+             </div>
             </div>
             <div class="input-field">
               <i class="material-icons prefix">devices</i>      
-             <select name="category">
-             <option disabled selected>カテゴリーの選択（※）</option>
+             <select name="category"  class="validate">
+             <option value disabled selected>カテゴリーの選択（※）</option>
                 <option value="1">Programming</option>
                 <option value="2">Tool</option>
                 <option value="3">Server</option>
-                  <option value="ohter">その他</option>
+                  <option value="ohter" >その他</option>
             </select>
-            <label>Category Select</label>
-            </div>
+            <label for="category" data-error="必須入力項目です">Category Select</label>
         <div class="input-field">
           <i class="material-icons prefix">event_note</i>
           <textarea  id="explain" name="explain" class="materialize-textarea" placeholder="勉強会の内容について"></textarea>
@@ -64,8 +66,8 @@
         </div>
         <div class="input-field">
         <i class="material-icons prefix">local_offer</i>
-         <select id="tags" multiple>
-      <option value="" disabled selected>関連タグの選択</option>
+         <select id="tags"  multiple>
+      <option disabled selected>関連タグの選択</option>
       <option value="tag1">Option 1</option>
       <option value="tag2">Option 2</option>
       <option value="tag3">Option 3</option>
@@ -74,21 +76,21 @@
         </div>
           <div class="input-field">
             <i class="material-icons prefix">account_circle</i>
-                    <input id="name" class="validate" type="text" name="name" placeholder="名前（※）">
-                    <label for="title">Your Name</label>
+                    <input id="name" class="validate" type="text" name="name" placeholder="名前（※）" required="" aria-required="true">
+                    <label for="name"  data-error="必須入力項目です" data-success="right">Your Name</label>
                 </div>     
                   <div class="input-field">
                     <i class="material-icons prefix">email</i>
-                    <input id="email" class="validate" type="email" name="mail" placeholder="メールアドレス（※）">
-                    <label for="title" data-error="wrong">Your Mail</label>
+                    <input id="email" class="validate" type="email" name="email" placeholder="メールアドレス（※）" required="" aria-required="true">
+                    <label for="email" data-error="必須入力項目です" data-success="right">Your Mail</label>
                 </div>     
             <div class="input-field">
               <i class="material-icons prefix">group</i>
-                <input id="group" class="validate" type="text" name="member" placeholder="募集最低人数(数字)（※）">
-                <label for="title">member</label>
+                <input id="group" class="validate" type="text" name="member" placeholder="募集最低人数(数字)（※）" required="" aria-required="true">
+                <label for="member" data-error="必須入力項目です" data-success="right">member</label>
             </div>   
+               <button id="addSeminar_btn" type="submit" class="btn orange darken-4" name="action">登録</button>
             </form>
-            <input id="addSeminar_btn" class="btn orange darken-4" value="登録">
            </div>
         </div>
         </div>
@@ -112,5 +114,8 @@
   $(document).ready(function() {
     $('select').material_select();
   });
+   </script>
+   <script>
+     $(".button-collapse").sideNav();
    </script>
 </html>

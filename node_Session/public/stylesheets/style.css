@@ -36,7 +36,7 @@ ul.side-nav li a {
 /*main contents*/
 
 .page-title {
-    color: #616161;
+    color: #757575;
 }
 
 
@@ -110,6 +110,15 @@ div.input-field .prefix.active {
 
 ul.dropdown-content li>span>label {
     top: -10px;
+}
+
+.form-error {
+    color: #D8000C;
+}
+
+#sidebar_btn {
+    border-radius: 0px;
+    margin-top: 15px;
 }
 
 
