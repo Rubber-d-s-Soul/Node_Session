@@ -14,6 +14,7 @@ const couch = new NodeCouchDb({
 });
 
 exports.couchdb = couch;
+exports.createtime = moment().format("YYYY/MM/DD HH:mm:ss");
 
 //document追加
 exports.createDoc = function(dbname, data) {

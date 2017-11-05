@@ -3,6 +3,9 @@ var express = require('express');
 var router = express.Router();
 var couch = require('./couchdb.js');
 
+/*timestamp用*/
+var moment = require("moment");
+
 var dbname = 'tags_db';
 
 /* GET home page. */
@@ -30,6 +33,46 @@ router.get('/', function(req, res, next) {
         }
         res.render('tags', data);
     });
+});
+
+/*add tag */
+router.post('/create', function(req, res, next) {
+    var data = req.body;
+    var dbname = "tags_db";
+    var status, msg;
+    var result = {
+        "result": status,
+        "url": "/tags",
+        "msg": msg
+    }
+
+    var couchdb = couch.couchdb;
+    var tag = data.tag;
+    var createtime = moment().format("YYYY/MM/DD HH:mm:ss");
+    //couchにデータ登録
+
+    //すでに登録されている名前かどうか確認する処理入れる
+
+    couchdb.insert(dbname, {
+        tag: tag,
+        createtime: createtime,
+        updatetime: createtime,
+    }).then(({ data, headers, status }) => {
+        console.log("[couch createDoc SUCCESS]");
+        console.log("[ status ] : " + status);
+        console.log(status);
+        status = true;
+    }, err => {
+        console.log("[couch createDoc ERROR]");
+        console.log(err.body);
+        status = false;
+    });
+
+    console.log(status);
+
+    msg = (status) ? "DB登録SUCCESS" : "DB ERROR";
+
+    res.send(result);
 });
 
 module.exports = router;

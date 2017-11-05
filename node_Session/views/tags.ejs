@@ -24,18 +24,41 @@
        
           <div class="card row orange darken-3">
             <div class="card-content white-text">
-              <button id="addTag_btn" class="btn btn-floating waves-effect waves-light right  deep-orange darken-3"><i class="material-icons">add</i></button>
+              <button id="addTag_btn" class="btn btn-floating waves-effect waves-light right  deep-orange darken-3 modal-trigger" href="#modal1"><i class="material-icons">add</i></button>
               <span class="card-title">Tags</span>
               <% tagList.forEach(function(tag) {  %>
               
-              <div id="<%= tag.id %>" value="<%= tag.value.rev%>" class="chip orange lighten-4"><%= tag.value.title %></div>
+              <div id="<%= tag.id %>" value="<%= tag.value.rev%>" class="tagchip chip orange lighten-4"><%= tag.value.title %></div>
               
               <% }); %>
-            </div>
+              </div>
           </div>
       </div>
 
     </div>
 </body>
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal  orange darken-2">
+    <div class="modal-content white-text">
+      <a id="modal_close" class="modal-action modal-close waves-effect waves-green btn-flat right"><i class="material-icons">close</i></a>
+      <h4>Add New Tag</h4>
+      <p>関連タグを追加します</p>
+      <div id="addTag_Field" class="input-field">
+          <input placeholder="追加する関連タグ名" name="addTag_Form" id="addTag_Form" type="text" class="validate">
+          <label for="addTag_Form">Add Tag Name</label>
+      </div>
+    </div>
+    <div class="modal-footer orange darken-2">
+      <a id="addTag_modalbtn" class="modal-action modal-close waves-effect waves-green btn-flat white-text">Enter</a>
+    </div>
+
+  </div>
  <%- include('./component/in_js.ejs') %>
+ <script type="text/javascript" src="/javascripts/tags_front.js"></script>
+ <script>
+ $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+ </script>
 </html>
