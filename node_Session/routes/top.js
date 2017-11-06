@@ -4,7 +4,15 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('top', { title: 'トップページ' });
+    var id = req.body['id'];
+    req.session.id = id;
+
+    var data = {
+        title: 'TopPage',
+        id: req.session.id
+    }
+
+    res.render('top', data);
 });
 
 router.post('/', function(req, res, next) {
