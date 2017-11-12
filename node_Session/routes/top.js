@@ -8,33 +8,34 @@ var couchdb = couch.couchdb;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-            var id = req.body['id'];
+    var id = req.body['id'];
 
-            //id,passwordをチェック
-            couchdb.get(dbname, viewUrl.then(({ data, headers, status }) => {
-                    //ログインOKの場合
-                    console.log("couchdb login user success");
-                    console.log(data);
+    couchdb.get(dbname, viewUrl.then(({ data, headers, status }) => {
 
-                    req.session.id = id;
-                    //その他初期用データ取得する
+        //ログインOKの場合
+        console.log("couchdb login user success");
+        console.log(data);
 
-                    var data = {
-                        title: 'TopPage',
-                        id: req.session.id
-                    }
+        req.session.id = id;
+        //その他初期用データ取得する
 
-                    res.render('top', data);
-                }, err => {
-                    //ログインエラーの場合
-                    console.log("couchdb login user error");
+        var data = {
+            title: 'TopPage',
+            id: req.session.id
+        }
+        res.render('top', data);
 
-                    res.render('login', { title: 'login' });
-                });
-            });
+    }, err => {
+        //ログインエラーの場合
+        console.log("couchdb login user error");
 
-        router.post('/', function(req, res, next) {
-            res.render('top', { title: 'トップページ' });
-        });
+        res.render('login', { title: 'login' });
+    }));
 
-        module.exports = router;
+})
+
+router.post('/', function(req, res, next) {
+    res.render('top', { title: 'トップページ' });
+});
+
+module.exports = router;

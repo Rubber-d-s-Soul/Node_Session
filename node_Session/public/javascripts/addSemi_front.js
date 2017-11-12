@@ -1,7 +1,7 @@
 $(function() {
     //入力フォームのバリデーション
     $(document).ready(function() {
-        $.validator.setDefaults({
+        /*$.validator.setDefaults({
             ignore: []
         });
 
@@ -19,7 +19,7 @@ $(function() {
             errorPlacement: function(error, element) {
                 error.appendTo(element.parent());
             }
-        });
+        });*/
     });
 
 
@@ -79,7 +79,7 @@ $(function() {
         var url = add_semi.ajaxUrl.addSeminar;
         var type = conf.ajaxType.post;
         var dataType = conf.ajaxDataType.json;
-
+        var func = common.ajax_status;
 
         if (title == "" || name == "" || email == "" || member == "") return false;
 
@@ -96,7 +96,11 @@ $(function() {
             "member": member,
         };
         //ajaxReq
-        common.ajax_req(url, type, dataType, data, common.move_browse);
+        console.log(url);
+        console.log(type);
+        console.log(dataType);
+        console.log(data);
+        common.ajax_req(url, type, dataType, data, func);
     });
 
 });
