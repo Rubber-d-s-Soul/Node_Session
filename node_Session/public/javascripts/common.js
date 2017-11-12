@@ -5,22 +5,23 @@ $(function() {
 var common = {
     ajax_req: function(url, type, datatype, data, func) {
         console.log("[ajax_req]");
-
+        console.log(url);
+        console.log(type);
+        console.log(datatype);
+        console.log(data);
         $.ajax({
             url: url,
             type: type,
             dataType: datatype,
-            data: data,
-            success: function(result) {
-                console.log(result);
-                if (func != "") {
-                    func(result);
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert();
-                alert('Error connecting to the Node.js server... ' + textStatus + " " + errorThrown);
+            data: data
+        }).done(function(data, textStatus, jqXHR) {
+            alert("success");
+            if (func != "") {
+                func(data);
             }
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            alert("error");
+
         });
     },
     reload_browse: function(result) {

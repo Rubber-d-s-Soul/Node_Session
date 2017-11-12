@@ -1,29 +1,4 @@
 $(function() {
-    //入力フォームのバリデーション
-    $(document).ready(function() {
-        /*$.validator.setDefaults({
-            ignore: []
-        });
-
-        $("#addSeminarForm").validate({
-            rules: {
-                title: {
-                    required: true,
-                    minlength: 5
-                }
-            },
-            type: "required",
-            category: "required",
-            errorClass: "invalid form-error",
-            errorElement: 'div',
-            errorPlacement: function(error, element) {
-                error.appendTo(element.parent());
-            }
-        });*/
-    });
-
-
-
 
     //登録ボタンクリック時
     $(add_semi.id.add_semi_btn).on("click", function() {
@@ -79,7 +54,7 @@ $(function() {
         var url = add_semi.ajaxUrl.addSeminar;
         var type = conf.ajaxType.post;
         var dataType = conf.ajaxDataType.json;
-        var func = common.ajax_status;
+        var func = "";
 
         if (title == "" || name == "" || email == "" || member == "") return false;
 

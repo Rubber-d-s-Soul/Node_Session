@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
 });
 
 /*add tag */
-router.post('/create', function(req, res, next) {
+router.post('/createtag', function(req, res, next) {
     var data = req.body;
     var dbname = "tags_db";
     var status, msg;
